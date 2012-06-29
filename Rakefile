@@ -33,5 +33,5 @@ task :new_post, :title do |t, args|
     post.puts ""
     post.puts ""
   end
-  system "vim #{filename}"
+  #system "vim #{filename}"
 end
