@@ -1,6 +1,6 @@
 # DailyRB 
 
-> *Use Ruby. Be happy.*
+> *Use Ruby. Be happy.*  
 > ~ from ruby-doc.org
 
 ## 关于
