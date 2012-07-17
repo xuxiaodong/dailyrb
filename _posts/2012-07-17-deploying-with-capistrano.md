@@ -10,7 +10,7 @@ Capistrano 是一个 Ruby 程序，它提供高级的工具集来部署你的 We
 应用到服务器上。Capistrano 允许你通过 SSH 从源代码控制仓库（SVN 或
 Git）复制代码到服务器，并执行如重启 Web
 服务器、操作缓存、重命名文件、迁移数据库等部署前/后的功能。利用 Capistrano
-一次也可部署多台机器在。
+一次也可部署多台机器。
 
 本指南并未覆盖 Capistrano
 提供的被用于部署多种应用的高级选项。作为学习目的，我们将指引你设置一个简单的
@@ -71,7 +71,7 @@ shoes”，则输入：
 Subversion 用户需添加：
 
     set :scm, :subversion
-    set :repository, "git@account.beanstalkapp.com:/repository.git"
+    set :repository, "https://account.svn.beanstalkapp.com/repository"
 
 然后，我们设置服务器的帐号：
 
@@ -115,7 +115,7 @@ staging.rb 文件。对于你配置的每个 stage 都需要一个 Ruby
 db）。生产环境与临时环境的差别是 `deploy_to`
 目录变量。事实上，你可能也想使用不同的服务器。
 
-**验证 Recipe××
+**验证 Recipe**
 
 全部准备好后，先试试我们的 recipe，以便让 Capistrano
 在服务器上创建初始的目录结构。从你的应用根目录执行下列命令：
