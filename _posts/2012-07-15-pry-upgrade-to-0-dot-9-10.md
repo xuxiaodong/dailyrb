@@ -13,7 +13,7 @@ category: news
 * 为 gist 命令添加 `--hist`、`-o`、`-k` 选项
 * show-source/doc 支持 class-eval 中的方法定义及 C 中的 gem 方法定义
 * 添加 `--disable-plugin` 及 `--select-plugin` 选项
-* 允许使用 pry <file> 来让 pry input 执行文件
+* 允许使用 pry \<file\> 来让 pry input 执行文件
 * 支持 `ri` 命令中的颜色
 
 通过 Pry 0.9.10 的[更改日志][l]，你可以了解更多详情。
