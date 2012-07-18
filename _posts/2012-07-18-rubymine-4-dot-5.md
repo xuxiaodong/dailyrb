@@ -15,7 +15,7 @@ JetBrains 在今天发布了旗下 Ruby 及 Rails 集成开发环境 RubyMine �
 * Mongoid/MongoDB 集成
 * 使用 pik 和 rbenv 管理 Ruby SDK
 * IRB/Rails console 调试改进及多进程调试选项
-* 针对 Sass、CoffeeScript 及 HAML 的垂构支持
+* 针对 Sass、CoffeeScript 及 HAML 的重构支持
 
 RubyMine 可在 Windows、Mac OS X 以及 Linux 上运行，其[试用版][d]可从 RubyMine
 官方网站下载。

@@ -22,6 +22,14 @@ DailyRB 采用 [Markdown](http://markdown.tw) 撰写，并通过 [Jekyll](http:/
 
 欢迎参与 DailyRB 项目，或敬请[提示我们](http://dailyrb.org/submit.html)。
 
+参与的方式包括但不限于：
+
+* 为 DailyRB 设计新的界面样式
+* 爆料 Ruby 世界的最新动向
+* 提交原创 Ruby 使用心得
+* 译介境外 Ruby 精华
+* 建议 & Bug
+
 ## 致谢
 
 * [Git Ready](http://gitready.com): 站点样式来源
