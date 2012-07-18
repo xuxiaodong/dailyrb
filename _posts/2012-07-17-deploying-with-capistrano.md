@@ -186,7 +186,7 @@ Capistrano 中的任务非常强大，我们在本指南中仅接触到表皮。
 中的，将在部署完成后自动执行。我们使用由 Passenger 驱动的现代 Rails 应用技术
 touch tmp/restart.txt，你的 Web 服务器可能需要不同的命令。
 
-我们的第二个示例任务是“restart_daemons”，Capistrano
+我们的第二个示例任务是“restart\_daemons”，Capistrano
 不会默认执行此定制任务。为了让它运行，我们需要添加一个 hook：
 
     after "deploy", "deploy:restart_daemons"
