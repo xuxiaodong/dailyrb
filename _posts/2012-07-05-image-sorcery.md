@@ -12,7 +12,9 @@ ImageMagick 的 mogrify、convert 及 identify
 
 可通过 `gem` 指令来安装 Image Sorcery：
 
-    $ gem install image_sorcery
+{% highlight bash %}
+$ gem install image_sorcery
+{% endhighlight %}
 
 **Image Sorcery 小试牛刀**
 
