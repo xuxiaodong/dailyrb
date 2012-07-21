@@ -37,7 +37,7 @@ Windows 系统中。
 至此，在 Windows 上安装 Ruby 完成。你可以打开“命令提示符”执行
 `irb`，并输入一些测试代码来检验 Ruby 是否安装成功。
 
-{% highlight dos %}
+{% highlight bash %}
 > cd /d C:\Ruby193\bin
 > irb
 > puts "Hello RubyInstaller"
