@@ -1,0 +1,12 @@
+---
+layout: page
+title: Howto & Tip
+---
+<p>Listing {{ site.categories.howto.size }} archived posts:</p>
+<ul>
+{% for post in site.categories.howto %}
+  <li>
+    {{ post.date | date: "%b %d, %Y"  }} &mdash; <a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>

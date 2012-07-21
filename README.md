@@ -32,7 +32,7 @@ DailyRB 采用 [Markdown](http://markdown.tw) 撰写，并通过 [Jekyll](http:/
 
 ## 致谢
 
-* [Git Ready](http://gitready.com): 站点样式来源
+* [TJ Stein](http://tjstein.com): 站点样式来源
 * [Jekyll](http://jekyllrb.com): 站点生成引擎
 * [GitHub](http://github.com): 站点源码托管
 

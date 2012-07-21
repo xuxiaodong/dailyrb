@@ -16,23 +16,29 @@ rbenv 和 ruby-build 的源代码托管在 GitHub 上，只需通过 `git` 命�
 
 我们先安装 rbenv：
 
-    $ cd
-    $ git clone git://github.com/sstephenson/rbenv.git .rbenv
-    $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
-    $ echo 'eval "$(rbenv init -)"' >> .bash_profile
+{% highlight bash %}
+$ cd
+$ git clone git://github.com/sstephenson/rbenv.git .rbenv
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
+$ echo 'eval "$(rbenv init -)"' >> .bash_profile
+{% endhighlight %}
 
 Zsh 用户请将 .bash\_profile 替换成 .zshenv。
 
 接着，我们安装 ruby-build：
 
-    $ mkdir .rbenv/plugins
-    $ cd .rbenv/plugins
-    $ git clone git://github.com/sstephenson/ruby-build.git
+{% highlight bash %}
+$ mkdir .rbenv/plugins
+$ cd .rbenv/plugins
+$ git clone git://github.com/sstephenson/ruby-build.git
+{% endhighlight %}
 
 为使已安装的 rbenv 和 ruby-build 在我们的 shell
 中即时生效，所以我们执行以下命令：
 
-    $ source ~/.bash_profile
+{% highlight bash %}
+$ source ~/.bash_profile
+{% endhighlight %}
 
 同样的，Zsh 用户需换成 .zshenv。
 
@@ -42,28 +48,38 @@ Zsh 用户请将 .bash\_profile 替换成 .zshenv。
 版本了。不过，在此之前，我们还得准备编译安装 Ruby
 的各种工具（如编译器）及依赖。以 Ubuntu 为例，可通过下列命令安装：
 
-    $ sudo apt-get install build-essential autoconf automake bison libtool \
-    openssl libreadline6 libreadline6-dev curl zlib1g zlib1g-dev libssl-dev \
-    libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libc6-dev ncurses-dev
+{% highlight bash %}
+$ sudo apt-get install build-essential autoconf automake bison libtool \
+openssl libreadline6 libreadline6-dev curl zlib1g zlib1g-dev libssl-dev \
+libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libc6-dev ncurses-dev
+{% endhighlight %}
 
 假如我们想要安装 Ruby 的最新版本 1.9.3 p194，那么可以执行：
 
-    $ rbenv install 1.9.3-p194
+{% highlight bash %}
+$ rbenv install 1.9.3-p194
+{% endhighlight %}
 
 _提示_：不带参数执行 `rbenv install` 可以获得可安装的 Ruby 版本列表。
 
 rbenv 会先从 Ruby 官方网站下载源码包，然后开始自动化的编译安装过程。
 根据机器的配置，该过程稍微有点耗时，你可以通过如下命令来监视：
 
-    $ tailf /tmp/ruby-build.*.log
+{% highlight bash %}
+$ tailf /tmp/ruby-build.*.log
+{% endhighlight %}
 
 你可以根据实际需要安装多个 Ruby 版本。在此，我们也将安装 Ruby 1.8.7 p370：
 
-    $ rbenv install 1.8.7-p370
+{% highlight bash %}
+$ rbenv install 1.8.7-p370
+{% endhighlight %}
 
 在 Ruby 安装完成之后，我们需要执行下面的命令，以便 rbenv 重建 shim 可执行文件：
 
-    $ rbenv rehash
+{% highlight bash %}
+$ rbenv rehash
+{% endhighlight %}
 
 **管理 Ruby 版本**
 
@@ -75,12 +91,16 @@ rbenv 支持以下三种 Ruby 版本的环境管理：
 
 要将我们先前安装的 Ruby 1.9.3 p194 设置为全局性版本，可以执行：
 
-    $ rbenv global 1.9.3-p194
+{% highlight bash %}
+$ rbenv global 1.9.3-p194
+{% endhighlight %}
 
 设置为局部性版本和 shell 级版本，可分别执行：
 
-    $ rbenv local 1.9.3-p194
-    $ rbenv shell 1.9.3-p194
+{% highlight bash %}
+$ rbenv local 1.9.3-p194
+$ rbenv shell 1.9.3-p194
+{% endhighlight %}
 
 最后，通过 `rbenv versions` 能够查看已经安装的 Ruby 版本，其中，带 \*
 的项目为当前正在使用的 Ruby 版本。

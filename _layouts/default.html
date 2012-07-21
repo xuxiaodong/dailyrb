@@ -1,83 +1,101 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<!doctype html>
 <head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>DailyRB &raquo; {{ page.title }}</title>
-   <meta name="author" content="Xiaodong Xu" />
-   <link href="/atom.xml" rel="alternate" title="RSS" type="application/rss+xml" />
-   <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection" />
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-   <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection" />
-   <link rel="shortcut icon" href="/favicon.ico" />
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="A blog about Ruby" />
+  <meta name="author" content="Xiaodong Xu" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="user-scalable=no,width=device-width" />
+  <meta name="keywords" content="Ruby, Rails" />
+  <meta name="copyright" content="Copyright 2012 to Present"/>
+  <link href="{{ site.url }}/atom.xml" rel="alternate" title="DailyRB's RSS feed" type="application/rss+xml" />
+  <link href="http://dailyrb.org/" rel="home" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link type="text/css" rel="stylesheet" media="screen, projection" href="/css/screen.css" /> 
+  <link type="text/css" rel="stylesheet" media="all" href="/css/custom.css" />
+  <!--[if lt IE 8]>
+    <link type="text/css" rel="stylesheet" media="screen, projection" href="/css/ie.css" />
+  <![endif]--> 
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  {% include prettify.html %}
+  {% include google_analytics.html %}	
 </head>
-<body>
-  <div class="container_12">
-    <div class="grid_4 prefix_2 title">
-      <h1><a href="/">DailyRB</a></h1>
-    </div>
-    <div class="grid_4 suffix_2 info">
-      <div class="extra">Use Ruby. Be happy.</div>
-    </div>
-    <div class="grid_8 prefix_2 suffix_2 main">
-      {{ content }}
-    </div> 
-    <div class="grid_2 prefix_2 links">
-      <h3 id="green">news</h3>
-      {% for post in site.categories.news %}
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      {% endfor %}
-    </div>
-    <div class="grid_2 links">
-      <h3 id="yellow">gem & tool</h3>
-      {% for post in site.categories.gem %}
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      {% endfor %}
-    </div>
-    <div class="grid_2 links">
-      <h3 id="red">howto & tip</h3>
-      {% for post in site.categories.howto %}
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      {% endfor %}
-    </div>
-    <div class="grid_2 suffix_2 links">
-      <h3 id="blue">resources</h3>
-        <a href="http://www.ruby-lang.org">Ruby 官网</a>
-        <a href="http://www.ruby-doc.org">Ruby 文档</a>
-        <a href="http://rdoc.info">Ruby Doc</a>
-        <a href="http://rubygems.org">Ruby Gems</a>
-        <a href="http://rubyforge.org">RubyForge</a>
-        <a href="http://www.ruby-toolbox.com">Ruby 工具箱</a>
-        <a href="http://github.com/bbatsov/ruby-style-guide">Ruby 编码风格指南</a>
-        <a href="http://rubyonrails.org">Ruby on Rails 官网</a>
-        <a href="http://ruby.railstutorial.org/book/ruby-on-rails-tutorial">Ruby on Rails 教程</a>
-        <a href="http://ruby-china.org">Ruby China</a>
-    </div>
-    <div class="grid_12 footer">
-      <div class="footer_links">
-        <a href="/about.html">about</a>
-        <a href="http://github.com/xuxiaodong/dailyrb">code</a>
-        <a href="/submit.html">submit a tip</a>
-        <a class="rss" href="/atom.xml">rss</a>
+  <body>
+    <div class="container">
+      <header class="span-21 last" id="header">
+        <h1><a href="{{ site.url }}" rel="home bookmark">{{ site.title }}</a></h1>
+      </header>
+
+      <div class="span-16" id="content">
+        {{ content }}
       </div>
-      <div>
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a>
+      <div class="span-5 last" id="sidebar">
+        <div class="sidebarbox"> 
+          <h4>Pages</h4> 
+          <ul id="pages">
+	          <li>
+              <a rel="bookmark" title="Home" href="{{ site.url }}/">Home</a>
+            </li>
+	          <li>
+              <a rel="bookmark" title="News" href="{{ site.url }}/news.html">News</a>
+            </li>
+	          <li>
+              <a rel="bookmark" title="Gem & Tool" href="{{ site.url }}/gem.html">Gem</a>
+            </li>
+	          <li>
+              <a rel="bookmark" title="Howto & Tip" href="{{ site.url }}/howto.html">Howto</a>
+            </li>
+	          <li>
+              <a rel="bookmark" title="Resource" href="{{ site.url }}/resource.html">Resource</a>
+            </li>
+            <li>
+              <a rel="bookmark" title="Archives" href="{{ site.url }}/archives.html" id="archives">Archives</a> 
+            </li>
+            <li>
+              <a rel="bookmark" title="About" href="{{ site.url }}/about.html">About</a>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebarbox"> 
+          <h4>Subscribe</h4> 
+          <ul> 
+            <li> 
+              <a title="RSS Feed" href="{{ site.url }}/atom.xml" class="icon-link" id="feed-link">RSS</a> 
+            </li> 
+          </ul> 
+        </div> 
+        <div class="sidebarbox"> 
+          <h4>Elsewhere</h4> 
+          <ul> 
+            <li> 
+              <a rel="bookmark" title="Twitter" href="http://twitter.com/xuxiaodong" class="icon-link" id="twitter-link">Twitter</a> 
+            </li> 
+            <li> 
+              <a rel="bookmark" title="GitHub" href="http://github.com/xuxiaodong" class="icon-link" id="github-link">GitHub</a> 
+            </li> 
+          </ul> 
+        </div>
+        <div class="sidebarbox"> 
+          <h4>Contact Me</h4> 
+          <ul> 
+            <li> 
+              <a rel="bookmark" title="Email" href="mailto:xxdlhy@gmail.com" class="icon-link" id="gmail-link">Gmail</a> 
+            </li> 
+          </ul> 
+        </div> 
       </div>
+
+      <footer class="span-21 last" id="footer">
+        Some content copyright &copy; Xiaodong Xu. Written in mostly valid <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fdailyrb.org%2F" title="Valid HTML5" rel="external" target="_blank">HTML5</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fdailyrb.org&amp;profile=css3&amp;usermedium=all&amp;warning=1" title="Valid CSS3" rel="external" target="_blank">CSS3</a>. Powered by <a href="http://github.com/mojombo/jekyll" title="The Jekyll (static site generator) code repository" rel="external" target="_blank">Jekyll</a>.</p>
+      </footer>
     </div>
-  </div>
-  <script type="text/javascript">
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-33032874-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
-</body>
+    {% include disqus.html %}
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
 </html>

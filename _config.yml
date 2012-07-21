@@ -1,3 +1,5 @@
+title: "DailyRB"
+url: "http://dailyrb.org"
 markdown: rdiscount
 pygments: true
 baseurl: /
