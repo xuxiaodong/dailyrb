@@ -24,11 +24,15 @@ recipe（食谱），以用于从 SVN 或 Git 仓库部署 Rails
 
 然后从终端或命令行执行下列命令：
 
-    gem install capistrano
+{% highlight bash %}
+$ gem install capistrano
+{% endhighlight %}
 
 我们推荐安装 **capistrano-ext** gem，它包含使你部署更加容易的扩展工具集：
 
-    gem install capistrano-ext
+{% highlight bash %}
+$ gem install capistrano-ext
+{% endhighlight %}
 
 如果你遇到了问题或想要了解更多细节，可以参考官方的 Capistrano
 [入门指南][g]，或找到使 Capistrano 工作的[各种组件][c]。
@@ -42,7 +46,9 @@ recipe（食谱），以用于从 SVN 或 Git 仓库部署 Rails
 
 在终端中导航到你的应用根目录，并执行以下命令：
 
-    $ capify .
+{% highlight bash %}
+$ capify .
+{% endhighlight %}
 
 该命令在你的项目中创建一个特殊的 Capfile 文件，并在 Rails 项目中添加模板部署
 recipe（config/deploy.rb）。Capfile 将帮助 Capistrano 正确加载你的 recipe
@@ -60,22 +66,30 @@ recipe 的正确代码。
 文件中，让我们在第一行输入应用的名称。如果你的应用名称是“fancy
 shoes”，则输入：
 
-    set :application, "fancy_shoes"
+{% highlight ruby %}
+set :application, "fancy_shoes"
+{% endhighlight %}
 
 接着我们添加要访问的仓库。Git 用户可以添加：
 
-    set :scm, :git
-    set :repository, "git@account.beanstalkapp.com:/repository.git"
-    set :scm_passphrass, ""
+{% highlight ruby %}
+set :scm, :git
+set :repository, "git@account.beanstalkapp.com:/repository.git"
+set :scm_passphrass, ""
+{% endhighlight %}
 
 Subversion 用户需添加：
 
-    set :scm, :subversion
-    set :repository, "https://account.svn.beanstalkapp.com/repository"
+{% highlight ruby %}
+set :scm, :subversion
+set :repository, "https://account.svn.beanstalkapp.com/repository"
+{% endhighlight %}
 
 然后，我们设置服务器的帐号：
 
-    set :user, "server-user-name"
+{% highlight ruby %}
+set :user, "server-user-name"
+{% endhighlight %}
 
 确保该帐号具有 `deploy_to` 变量所指定目录的读写访问权限。
 
@@ -89,12 +103,16 @@ capistrano-ext 随附）。这允许你设置一个 recipe
 
 在你的 deploy.rb 文件开头包含 multistage：
 
-    require 'capistrano/ext/multistage'
+{% highlight ruby %}
+require 'capistrano/ext/multistage'
+{% endhighlight %}
 
 然后指定你的环境，或“stages”：
 
-    set :stages, ["staging", "production"]
-    set :default_stage, "staging"
+{% highlight ruby %}
+set :stages, ["staging", "production"]
+set :default_stage, "staging"
+{% endhighlight %}
 
 因为部署到临时环境比生产环境更经常，所以我们使临时环境成为默认
 stage。接着，在你应用的 config 目录中创建 deploy 目录，并添加 production.rb 和
@@ -103,13 +121,17 @@ staging.rb 文件。对于你配置的每个 stage 都需要一个 Ruby
 
 现在让我们添加 production.rb 设置：
 
-    server "my_fancy_server.com", :app, :web, :db, :primary => true
-    set :deploy_to, "/var/www/fancy_shoes"
+{% highlight ruby %}
+server "my_fancy_server.com", :app, :web, :db, :primary => true
+set :deploy_to, "/var/www/fancy_shoes"
+{% endhighlight %}
 
 接着是 staging.rb：
 
-    server "my_fancy_server.com", :app, :web, :db, :primary => true
-    set :deploy_to, "/var/www/fancy_shoes_staging"
+{% highlight ruby %}
+server "my_fancy_server.com", :app, :web, :db, :primary => true
+set :deploy_to, "/var/www/fancy_shoes_staging"
+{% endhighlight %}
 
 在本例中，我们仅有的一个服务器被分配了三个任务（app、web 及
 db）。生产环境与临时环境的差别是 `deploy_to`
@@ -120,7 +142,9 @@ db）。生产环境与临时环境的差别是 `deploy_to`
 全部准备好后，先试试我们的 recipe，以便让 Capistrano
 在服务器上创建初始的目录结构。从你的应用根目录执行下列命令：
 
-    $ cap deploy:setup
+{% highlight bash %}
+$ cap deploy:setup
+{% endhighlight %}
 
 当你执行该命令时，Capistrano 将 SSH 到你的服务器，进入你在 `deploy_to`
 变量中所指定的目录，并创建特殊的 Capistrano 目录结构。如果遇到权限或 SSH
@@ -129,7 +153,9 @@ db）。生产环境与临时环境的差别是 `deploy_to`
 在我们使用 Capistrano 做实际部署之前的最后一步是，确保 setup
 命令在服务器上全都设置正确。使用以下命令进行简单验证：
 
-    $ cap deploy:check
+{% highlight bash %}
+$ cap deploy:check
+{% endhighlight %}
 
 该命令将检查你的本机环境及服务器，并定位问题。如果你看到错误消息，修复后再运行此命令。一旦你执行
 `cap deploy:check` 没有错误，则可继续处理。
@@ -138,11 +164,15 @@ db）。生产环境与临时环境的差别是 `deploy_to`
 
 一旦验证通过你的本机及服务器配置，执行下列命令：
 
-    $ cap deploy
+{% highlight bash %}
+$ cap deploy
+{% endhighlight %}
 
 这将执行部署到你的默认 stage，即临时环境。如果你想部署到生产环境，执行：
 
-    $ cap production deploy
+{% highlight bash %}
+$ cap production deploy
+{% endhighlight %}
 
 当命令执行时，你将看到许多输出。Capistrano
 打印在服务器上执行的所有命令及其输出，以便有问题时调试。
@@ -156,7 +186,9 @@ Capistrano
 deploy.rb recipe 则可提速。添加下列内容到 deploy.rb 文件描述 `scm`
 设置的位置：
 
-    set :deploy_via, :remote_cache
+{% highlight ruby %}
+set :deploy_via, :remote_cache
+{% endhighlight %}
 
 此命令使 Capistrano 在服务器上只克隆/导出仓库一次，然后在每次部署时使用 `svn
 up` 或 `git pull` 代替。如果你经常部署，你将发现提速明显。
@@ -168,15 +200,17 @@ Capistrano 显然比通过 SSH
 服务器、执行定制的脚本等。Capistrano 称这些为“任务”。例如，添加以下代码到
 deploy.rb 文件：
 
-    namespace :deploy do
-      task :restart, :roles => :web do
-        run "touch #{ current_path }/tmp/restart.txt"
-      end
-    
-      task :restart_daemons, :roles => :app do
-        sudo "monit restart all -g daemons"
-      end
-    end
+{% highlight ruby %}
+namespace :deploy do
+  task :restart, :roles => :web do
+    run "touch #{ current_path }/tmp/restart.txt"
+  end
+
+  task :restart_daemons, :roles => :app do
+    sudo "monit restart all -g daemons"
+  end
+end
+{% endhighlight %}
 
 Capistrano 中的任务非常强大，我们在本指南中仅接触到表皮。你可以创建任务在部署
 前、部署后或单独操作服务器。这可以是任何维护类型：重启进程、清理文件、发送
@@ -189,7 +223,9 @@ touch tmp/restart.txt，你的 Web 服务器可能需要不同的命令。
 我们的第二个示例任务是“restart\_daemons”，Capistrano
 不会默认执行此定制任务。为了让它运行，我们需要添加一个 hook：
 
-    after "deploy", "deploy:restart_daemons"
+{% highlight ruby %}
+after "deploy", "deploy:restart_daemons"
+{% endhighlight %}
 
 此命令告诉 Capistrano 在我们的部署操作完成后执行任务。其他可用的 hook 是
 before，将在文件复制之前执行任务。
@@ -205,11 +241,15 @@ before，将在文件复制之前执行任务。
 分支到这些环境。这样，你可以自动部署 staging 分支到临时环境，master
 分支到生产环境。简单添加下列内容到 production.rb：
 
-    set :branch, 'production'
+{% highlight ruby %}
+set :branch, 'production'
+{% endhighlight %}
 
 并添加以下内容到 staging.rb：
 
-    set :branch, 'staging'
+{% highlight ruby %}
+set :branch, 'staging'
+{% endhighlight %}
 
 现在每次你执行 `cap deploy` 时，Capistrano 将从你的 staging 分支（因为 staging
 是我们的默认环境）部署代码。如果你运行 `cap production deploy`，Capistrano
