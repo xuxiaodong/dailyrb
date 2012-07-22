@@ -11,3 +11,5 @@ RubyMotion 教程，你将学到通过惯用 Ruby 进行 iOS SDK 开发
 RubyMotion 教程由 Clay Allsopp 编写，可从以下链接在线阅读：
 
 <http://rubymotion-tutorial.com>
+
+[m]: http://rubymotion.com
