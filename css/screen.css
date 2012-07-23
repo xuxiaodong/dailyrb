@@ -875,7 +875,7 @@ code {
 	border: 1px solid #D8D8DC;
     color: #000;
     display: block;
-    font-family: "Menlo","Monaco","Consolas", Lucida Console, Consolas, Monaco, monospace !important;
+    font-family: "DejaVu Sans Mono","Menlo","Monaco","Consolas", Lucida Console, Consolas, Monaco, monospace !important;
 	font-size: 12px;
 	line-height: 1.6em;
     margin: 0 0 1.5em;
@@ -893,7 +893,7 @@ pre.terminal {
 	border: 2px solid #5a5a5a;
 	color: #17FF00;
     display: block;
-    font-family: "Menlo","Monaco","Consolas", Lucida Console, Consolas, Monaco, monospace !important;
+    font-family: "DejaVu Sans Mono","Menlo","Monaco","Consolas", Lucida Console, Consolas, Monaco, monospace !important;
 	font-size: 12px;
 	line-height: 1.6em;
     margin: 0 0 1.5em;
