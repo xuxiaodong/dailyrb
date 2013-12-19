@@ -61,10 +61,12 @@ category: howto
 
    这也许是在 subshell 中执行命令最广为人知的方法。如你所见，它返回了命令
    的输出，然后我们可以像其他字符串一样使用它。 
+   
+   注意 `$?` 并非是返回状态的整数，而实际是 Process::Status 对象。我们不仅
+   得到了退出状态，而且有进程 ID。`Process::Status#to_i` 返回整数型的退出状
+   态（`#to_s` 返回字符串型的退出状态）。
 
-   注意 `$?` 并非是返回状态的整数，而实际是 Process::Status
-   对象。我们不仅有退出状态，而且有进程 ID。Process::Status#to_i
-   给我们作为整数的退出状态（#to_s 给我们作为字符串的退出状态）。
+
 
    使用 backticks 我们只能获得命令的标准输出（stdout），而不能获得其标准错
    误（stderr）。在下面的例子中，我们执行 Perl 脚本来输出字符串到标准错误。
@@ -89,9 +91,10 @@ category: howto
        >> IO.popen("date") { |f| puts f.gets }
        Wed Jul  4 22:02:31 CST 2012
        => nil
+       
+   虽然 `IO#popen` 不错，但是当需要这类细分层次的信息时，我通常
+   使用`Open3#popen3`。
 
-   虽然 `IO#popen` 不错，但当我需要间隔层次时更典型的使用
-   `Open3#popen3`。
 
 5. Open3#popen3
 
